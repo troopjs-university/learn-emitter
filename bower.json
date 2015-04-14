@@ -1,0 +1,15 @@
+{
+  "name": "learn-emitter",
+  "homepage": "https://github.com/troopjs-university/learn-emitter",
+  "authors": [
+    "Mikael Karon"
+  ],
+  "main": "main.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ]
+}
