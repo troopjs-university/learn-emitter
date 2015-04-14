@@ -11,5 +11,9 @@
     "node_modules",
     "bower_components",
     "test"
-  ]
+  ],
+  "dependencies": {
+    "mu-emitter": "^0.1",
+    "requirejs": "^2.1"
+  }
 }
