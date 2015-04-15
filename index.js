@@ -15,11 +15,9 @@ require({
     }
 
     emitter.on("console", log);
-    emitter.on("console", warn);
+    emitter.one("console", warn);
 
     emitter.emit("console", "string", 123, false);
-
-    emitter.off("console");
 
     emitter.emit("console", "string", 123, false);
   }
