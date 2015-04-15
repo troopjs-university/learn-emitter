@@ -5,29 +5,21 @@ require({
 
   "callback": function (Emitter) {
     var emitter = new Emitter();
-    var scope1 = {};
-    var scope2 = {};
 
-    scope1.name = "e1";
-    scope2.name = "e2";
-
-    function log() {
-      console.log("%s [%o]", this.name, arguments);
+    function one() {
+      console.log("%s [%o]", "one", arguments);
     }
 
-    emitter.on("console", {
-      "scope": scope1,
-      "callback": log
-    });
+    function two() {
+      console.log("%s [%o]", "two", arguments);
+    }
 
-    emitter.on("console", {
-      "scope": scope2,
-      "callback": log
-    });
+    emitter.on("console", one);
+    emitter.on("console", two);
 
     emitter.emit({
       "type": "console",
-      "scope": scope1
+      "callback": one
     }, "string", 123, false);
   }
 });
