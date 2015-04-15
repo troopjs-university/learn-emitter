@@ -14,10 +14,13 @@ require({
       console.warn("This is a warn message [%o]", arguments);
     }
 
-    emitter.on("log", log);
-    emitter.on("warn", warn);
+    emitter.on("console", log);
+    emitter.on("console", warn);
 
-    emitter.emit("log", "string", 123, false);
-    emitter.emit("warn", "string", 123, false);
+    emitter.emit("console", "string", 123, false);
+
+    emitter.off("console", warn);
+
+    emitter.emit("console", "string", 123, false);
   }
 });
