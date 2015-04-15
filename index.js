@@ -6,18 +6,18 @@ require({
   "callback": function (Emitter) {
     var emitter = new Emitter();
 
-    function log() {
-      console.log("This is a log message [%o]", arguments);
+    function one() {
+      console.log("one [%o]", arguments);
     }
 
-    function warn() {
-      console.warn("This is a warn message [%o]", arguments);
+    function two() {
+      console.warn("two [%o]", arguments);
     }
 
-    emitter.on("console", log);
-    emitter.one("console", warn);
-
-    emitter.emit("console", "string", 123, false);
+    emitter.on("console", one);
+    emitter.on("console", two);
+    emitter.on("console", two);
+    emitter.on("console", one);
 
     emitter.emit("console", "string", 123, false);
   }
