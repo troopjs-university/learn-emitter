@@ -4,28 +4,20 @@ require({
   "deps": [ "mu-emitter/main" ],
 
   "callback": function (Emitter) {
-    var emitter = new Emitter();
+    var emitter1 = new Emitter();
+    var emitter2 = new Emitter();
 
-    function one(a, b, c) {
-      console.log("one [%o]", a);
-      return 1;
+    emitter1.name = "e1";
+    emitter2.name = "e2";
+
+    function log() {
+      console.log("%s [%o]", this.name, arguments);
     }
 
-    function two(a, b, c) {
-      console.warn("two [%o]", b);
-      return 2;
-    }
+    emitter1.on("console", log);
+    emitter2.on("console", log);
 
-    function three(a, b, c) {
-      console.info("three [%o]", c);
-      return 3;
-    }
-
-    emitter.on("console", one);
-    emitter.on("console", two);
-    emitter.on("console", three);
-
-    var emit = emitter.emit("console", "string", 123, false);
-    console.log(emit);
+    emitter1.emit("console", "string", 123, false);
+    emitter2.emit("console", "string", 123, false);
   }
 });
