@@ -19,7 +19,7 @@ require({
 
     emitter.emit("console", "string", 123, false);
 
-    emitter.off("console", warn);
+    emitter.off("console");
 
     emitter.emit("console", "string", 123, false);
   }
