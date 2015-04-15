@@ -25,6 +25,9 @@ require({
       "callback": log
     });
 
-    emitter.emit("console", "string", 123, false);
+    emitter.emit({
+      "type": "console",
+      "scope": scope1
+    }, "string", 123, false);
   }
 });
